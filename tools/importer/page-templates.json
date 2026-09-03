@@ -1,0 +1,82 @@
+{
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.healthspring.com/"
+      ],
+      "representativeUrl": "https://www.healthspring.com/",
+      "description": "HealthSpring homepage: hero, plan-finder widget, text+image, feature cards, promo banner, questions CTA",
+      "blocks": [
+        {
+          "name": "hero-primary",
+          "instances": [
+            "#healthspring-index-hero"
+          ]
+        },
+        {
+          "name": "widget",
+          "instances": [
+            "#content > div.grid-container.grid-container--navy.grid-container--justify-content-center.grid-container--margin-top-0.grid-container--fullwidth"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "#content > div.grid-container--navy.grid-container--margin-top-0.grid-container--fullwidth:nth-of-type(3)"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "#content > div.grid-container--margin-top-0.grid-container--fullwidth:nth-of-type(5)"
+          ]
+        },
+        {
+          "name": "hero-promo",
+          "instances": [
+            "#content > div.grid-container:nth-of-type(7)"
+          ]
+        },
+        {
+          "name": "columns-cta",
+          "instances": [
+            "#content > div.grid-container--white.grid-container--margin-top-0.grid-container--padding-y-48.grid-container--fullwidth"
+          ]
+        },
+        {
+          "name": "section-plan-finder",
+          "instances": [
+            "#content > div.grid-container.grid-container--navy.grid-container--justify-content-center.grid-container--margin-top-0.grid-container--fullwidth"
+          ],
+          "section": "navy"
+        },
+        {
+          "name": "section-text-image",
+          "instances": [
+            "#content > div.grid-container--navy.grid-container--margin-top-0.grid-container--fullwidth:nth-of-type(3)"
+          ],
+          "section": "navy"
+        },
+        {
+          "name": "section-why-choose",
+          "instances": [
+            "#content > div.grid-container--margin-top-0.grid-container--fullwidth:nth-of-type(5)"
+          ],
+          "section": "light"
+        },
+        {
+          "name": "section-questions",
+          "instances": [
+            "#content > div.grid-container--white.grid-container--margin-top-0.grid-container--padding-y-48.grid-container--fullwidth"
+          ],
+          "section": "white-padded"
+        }
+      ],
+      "urlPattern": "/"
+    }
+  ],
+  "metadata": {
+    "projectType": "da"
+  }
+}

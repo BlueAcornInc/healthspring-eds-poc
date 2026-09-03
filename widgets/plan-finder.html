@@ -1,0 +1,23 @@
+<div class="plan-finder-inner">
+  <form class="plan-finder-zip-form" novalidate>
+    <div class="plan-finder-field">
+      <label class="plan-finder-label" for="plan-finder-zip">Enter your ZIP code</label>
+      <input
+        class="plan-finder-input"
+        id="plan-finder-zip"
+        name="zip"
+        type="text"
+        inputmode="numeric"
+        pattern="[0-9]{5}"
+        maxlength="5"
+        placeholder="ZIP code"
+        autocomplete="postal-code"
+        aria-describedby="plan-finder-zip-error"
+      />
+      <button class="plan-finder-submit" type="submit">Shop for a plan</button>
+    </div>
+    <p class="plan-finder-error" id="plan-finder-zip-error" role="alert" hidden>
+      Please enter a valid 5-digit ZIP code.
+    </p>
+  </form>
+</div>

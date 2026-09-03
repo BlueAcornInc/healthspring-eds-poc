@@ -1,0 +1,119 @@
+/* Block: columns-media
+ * Source: healthspring.com "A Vibrant New Medicare Option" section.
+ * Full-bleed NAVY (#1F1647) band with inverted (white) text.
+ * DESKTOP: two columns — text (left) + rounded lifestyle photo (right).
+ * MOBILE: stacks, text on top, image below.
+ * Values extracted from source computed styles. */
+
+/* --- full-bleed navy band: cancel the section max-width/padding/margin --- */
+.columns-media-container {
+  margin: 0;
+}
+
+.columns-media-container .columns-media-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.columns-media {
+  background-color: var(--hs-navy);
+  color: #fff;
+  padding: 48px 0;
+}
+
+/* --- constrain inner content to the site grid --- */
+.columns-media > div {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* text cell */
+.columns-media > div > div {
+  order: 0;
+}
+
+/* image cell (class added by columns-media.js) — stacks below text on mobile */
+.columns-media > div > .columns-media-img-col {
+  order: 1;
+  margin-top: 24px;
+}
+
+.columns-media img {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* --- typography (inverted) --- */
+.columns-media h2 {
+  margin: 0;
+  color: #fff;
+  font-size: var(--heading-font-size-xl); /* 32px mobile / 48px desktop */
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.columns-media p {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: var(--body-font-size-s); /* 16px */
+  line-height: 1.33;
+}
+
+.columns-media h5 {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+/* decorative divider before the "Have questions?" heading (source: magenta rule) */
+.columns-media h5 + h5 {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hs-magenta);
+}
+
+/* inline link: white with underline rule (matches source border-bottom) */
+.columns-media a:any-link {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+}
+
+.columns-media a:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+@media (width >= 900px) {
+  .columns-media {
+    padding: 64px 0;
+  }
+
+  .columns-media > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 56px;
+    padding: 0 32px;
+  }
+
+  /* text column ~7/12, image column ~4/12 */
+  .columns-media > div > div {
+    flex: 0 1 630px;
+    order: unset;
+  }
+
+  .columns-media > div > .columns-media-img-col {
+    flex: 0 0 353px;
+    order: unset;
+    margin-top: 0;
+  }
+}
