@@ -1,0 +1,150 @@
+/* hero-promo — full-bleed magenta/purple promo banner with looping "spring"
+   background graphic and right-aligned white text (source: HealthSpring homepage). */
+
+/* Full-bleed: escape the section's max-width / padding. */
+.hero-promo-container .hero-promo-wrapper {
+  max-width: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-promo {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 32px 0;
+  background-color: var(--hs-purple);
+}
+
+/* Looping navy "spring" graphic, anchored to the left edge. */
+.hero-promo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("./spring.svg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto 110%;
+  pointer-events: none;
+}
+
+/* Row: constrain to the site content width and centre it. */
+.hero-promo > div {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Cell: the text/CTA column. Mobile-first = full width, left aligned. */
+.hero-promo > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.hero-promo > div > div > * {
+  margin: 0;
+}
+
+/* Typography — everything is white on the coloured banner. */
+.hero-promo h3 {
+  margin: 0;
+  color: var(--background-color);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.hero-promo p {
+  margin: 0;
+  color: var(--background-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.33;
+}
+
+.hero-promo p strong {
+  font-weight: 700;
+}
+
+/* CTA group: primary pill + secondary text link stacked. */
+.hero-promo .hero-promo-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* Primary pill button — white background, navy text. */
+.hero-promo a.hero-promo-cta-primary:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 8px 16px;
+  border: 2px solid var(--background-color);
+  border-radius: 900px;
+  background-color: var(--background-color);
+  color: var(--hs-navy);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.hero-promo a.hero-promo-cta-primary:hover,
+.hero-promo a.hero-promo-cta-primary:focus-visible {
+  background-color: var(--hs-cream);
+  border-color: var(--hs-cream);
+  color: var(--hs-navy);
+  text-decoration: none;
+}
+
+/* Secondary link — plain white text, no underline. */
+.hero-promo a.hero-promo-cta-secondary:any-link {
+  color: var(--background-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.hero-promo a.hero-promo-cta-secondary:hover,
+.hero-promo a.hero-promo-cta-secondary:focus-visible {
+  color: var(--background-color);
+  text-decoration: underline;
+}
+
+/* Desktop — right-aligned content column, larger heading, taller band. */
+@media (width >= 900px) {
+  .hero-promo {
+    padding: 64px 0;
+  }
+
+  .hero-promo::before {
+    background-size: auto 130%;
+    background-position: left center;
+  }
+
+  .hero-promo > div {
+    padding: 0 16px;
+  }
+
+  .hero-promo > div > div {
+    max-width: 494px;
+    margin-left: auto;
+  }
+
+  .hero-promo h3 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+}

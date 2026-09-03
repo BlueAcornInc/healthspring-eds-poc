@@ -146,10 +146,39 @@ function decorateButtons(main) {
  * Decorates the main element.
  * @param {Element} main The main element
  */
+/**
+ * Applies section metadata (e.g. "Style") as classes/data on each section.
+ * The vendored aem.js decorateSections omits this, so we run it here on the raw
+ * `main > div` sections before decorateSections wraps their children.
+ * @param {Element} main The main element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > div > div.section-metadata').forEach((metaBlock) => {
+    const section = metaBlock.parentElement;
+    const meta = {};
+    metaBlock.querySelectorAll(':scope > div').forEach((row) => {
+      const [keyCell, valueCell] = row.children;
+      if (keyCell && valueCell && keyCell.textContent) {
+        const key = keyCell.textContent.trim().toLowerCase();
+        meta[key] = valueCell;
+      }
+    });
+    if (meta.style) {
+      const styles = meta.style.textContent.trim().split(',').map((s) => s.trim()).filter(Boolean);
+      styles.forEach((s) => section.classList.add(`${s.toLowerCase().replace(/[^0-9a-z]+/g, '-')}-section`));
+    }
+    Object.keys(meta).forEach((key) => {
+      if (key !== 'style') section.dataset[key] = meta[key].textContent.trim();
+    });
+    metaBlock.remove();
+  });
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
+  decorateSectionMetadata(main);
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);

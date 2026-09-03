@@ -1,0 +1,37 @@
+{
+  "variantName": "hero-primary",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-09-03T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.healthspring.com/",
+    "originPage": "HealthSpring homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + heading + subheading + inline link",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "top-of-page hero banners with a full-bleed background image",
+      "brand landing intros with inverted text on a coloured background"
+    ],
+    "notSuitableFor": [
+      "text-only headings",
+      "mid-page promotional CTA banners (use hero-promo)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-03T00:00:00.000Z"
+  }
+}

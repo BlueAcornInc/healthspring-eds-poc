@@ -1,0 +1,34 @@
+{
+  "templates": [
+    {
+      "name": "about-us",
+      "urls": [
+        "https://www.healthspring.com/about-us"
+      ],
+      "representativeUrl": "https://www.healthspring.com/about-us",
+      "description": "To be named in naming step",
+      "blocks": [],
+      "urlPattern": "/*"
+    },
+    {
+      "name": "medicare",
+      "urls": [
+        "https://www.healthspring.com/medicare/medicare-advantage"
+      ],
+      "representativeUrl": "https://www.healthspring.com/medicare/medicare-advantage",
+      "description": "To be named in naming step",
+      "blocks": [],
+      "urlPattern": "/medicare/*"
+    },
+    {
+      "name": "understanding-medicare",
+      "urls": [
+        "https://www.healthspring.com/medicare/understanding-medicare/choosing-a-medicare-plan"
+      ],
+      "representativeUrl": "https://www.healthspring.com/medicare/understanding-medicare/choosing-a-medicare-plan",
+      "description": "To be named in naming step",
+      "blocks": [],
+      "urlPattern": "/medicare/understanding-medicare/*"
+    }
+  ]
+}

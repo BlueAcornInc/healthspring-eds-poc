@@ -1,0 +1,138 @@
+/* cards-feature — "Why Choose HealthSpring?" feature grid */
+
+/* Values extracted from healthspring.com computed styles. */
+
+/* Full-width cream section band. The section carries the block's container
+   class; styles.css caps the inner div at 1200px which we keep. */
+.section.cards-feature-container {
+  background-color: var(--hs-cream);
+  margin: 0;
+  padding: 64px 0;
+}
+
+/* --- Intro header (centered) --- */
+.cards-feature .cards-feature-intro {
+  max-width: 860px;
+  margin: 0 auto 48px;
+  text-align: center;
+  color: var(--hs-brand);
+}
+
+.cards-feature .cards-feature-intro > *:first-child {
+  margin-top: 0;
+}
+
+.cards-feature .cards-feature-intro h3 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.14;
+  color: var(--hs-brand);
+}
+
+.cards-feature .cards-feature-intro h4 {
+  margin: 16px 0 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--hs-brand);
+}
+
+.cards-feature .cards-feature-intro p {
+  margin: 16px 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--hs-brand);
+}
+
+/* --- Cards grid (mobile-first: 1 column) --- */
+.cards-feature ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.cards-feature ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* --- Icon: 90px purple circle on top --- */
+.cards-feature .cards-feature-card-icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 24px;
+  flex: none;
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-icon img,
+.cards-feature .cards-feature-card-icon picture {
+  display: block;
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+/* Fallback decorative circle for empty/missing icons (source used SVG icons
+   that did not import; a solid purple disc keeps the layout intact). */
+.cards-feature .cards-feature-card-icon-placeholder {
+  border-radius: 50%;
+  background-color: var(--hs-purple);
+}
+
+/* --- Card text --- */
+.cards-feature .cards-feature-card-body {
+  margin: 0;
+  padding: 0;
+  max-width: 304px;
+}
+
+.cards-feature .cards-feature-card-body h4 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--hs-brand);
+}
+
+.cards-feature .cards-feature-card-body p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: var(--hs-brand);
+}
+
+/* --- Tablet: 2 columns --- */
+@media (width >= 600px) {
+  .cards-feature ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Desktop: 4 columns --- */
+@media (width >= 900px) {
+  .cards-feature .cards-feature-intro h3 {
+    font-size: 40px;
+  }
+
+  .cards-feature .cards-feature-intro h4 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .cards-feature ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

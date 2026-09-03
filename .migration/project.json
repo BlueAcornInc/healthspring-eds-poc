@@ -1,0 +1,11 @@
+{
+  "type": "da",
+  "sites": {
+    "healthspring-eds-poc": {
+      "previewOrg": "sean-flynn-baici",
+      "previewSite": "healthspring-eds-poc",
+      "contentHostUrl": "https://content.da.live/sean-flynn-baici/healthspring-eds-poc/",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

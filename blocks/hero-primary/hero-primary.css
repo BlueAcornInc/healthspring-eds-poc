@@ -1,0 +1,114 @@
+/* Block: hero-primary
+ * Full-bleed brand hero. Source: #healthspring-index-hero on healthspring.com.
+ * Purple (#9E28B5) brand background with a single baked composition image
+ * (navy "spring" loops + lifestyle photo). White inverted text.
+ * Mobile: image stacked on top, text below on purple.
+ * Desktop: image full-bleed behind, white text constrained to the left. */
+
+/* full-bleed: cancel the section max-width/padding */
+.hero-primary-container .hero-primary-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-primary {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--hs-purple);
+  color: #fff;
+}
+
+/* --- image row --- */
+.hero-primary > div:first-child img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 390 / 268; /* mobile crop of the baked composition */
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* --- content row --- */
+.hero-primary > div:last-child {
+  padding: 32px 16px 40px;
+}
+
+.hero-primary h1 {
+  margin: 0;
+  color: #fff;
+  font-size: var(--heading-font-size-xxl); /* 40px mobile / 64px desktop */
+  font-weight: 500; /* source Halyard 500; rendered with Open Sans fallback */
+  line-height: 1.2;
+}
+
+.hero-primary p {
+  margin: 12px 0 0;
+  color: #fff;
+  font-size: var(--body-font-size-m); /* 18px */
+  line-height: 1.5; /* 27px / 18px */
+}
+
+/* inline "Special Enrollment Period" link: white with underline rule */
+.hero-primary a:any-link {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+}
+
+.hero-primary a:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+/* no-image fallback: keep text readable on the purple field */
+.hero-primary.no-image {
+  padding: 40px 16px;
+}
+
+@media (width >= 900px) {
+  .hero-primary {
+    min-height: 417px;
+  }
+
+  /* image becomes the full-bleed background layer */
+  .hero-primary > div:first-child,
+  .hero-primary > div:first-child > div {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+
+  .hero-primary > div:first-child img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  /* text overlays the left (purple) region, vertically centred */
+  .hero-primary > div:last-child {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1200px;
+    min-height: 417px;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+
+  .hero-primary > div:last-child > div {
+    max-width: 660px;
+  }
+
+  .hero-primary p {
+    margin-top: 16px;
+  }
+}
