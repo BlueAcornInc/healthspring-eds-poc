@@ -16,8 +16,49 @@
         "https://www.healthspring.com/medicare/medicare-advantage"
       ],
       "representativeUrl": "https://www.healthspring.com/medicare/medicare-advantage",
-      "description": "To be named in naming step",
-      "blocks": [],
+      "description": "HealthSpring Medicare Advantage interior page: secondary hero + plan-finder, value-prop benefit cards, colour promo bands, understanding-medicare link callout, video media cards, keep-shopping plan cards",
+      "blocks": [
+        {
+          "name": "medicare-hero",
+          "instances": [
+            "#medicare-advantage-hero-v2"
+          ],
+          "section": "purple"
+        },
+        {
+          "name": "benefit-cards",
+          "instances": [
+            "#content > div:nth-of-type(3)"
+          ]
+        },
+        {
+          "name": "promo-band",
+          "instances": [
+            "#content > div:nth-of-type(5)",
+            "#content > div:nth-of-type(8)"
+          ],
+          "section": "navy / purple"
+        },
+        {
+          "name": "link-callout",
+          "instances": [
+            "#content > div:nth-of-type(6)"
+          ]
+        },
+        {
+          "name": "media-cards",
+          "instances": [
+            "#content > div:nth-of-type(7)"
+          ]
+        },
+        {
+          "name": "plan-cards",
+          "instances": [
+            "#content > div:nth-of-type(11)"
+          ],
+          "section": "dark-purple"
+        }
+      ],
       "urlPattern": "/medicare/*"
     },
     {

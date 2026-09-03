@@ -1,0 +1,75 @@
+/* plan-cards — "Let's keep shopping" grid of large image cards on a dark band.
+   Sits inside a dark-purple-section. Each card: rounded photo with a linked
+   title below. */
+
+.plan-cards ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.plan-cards ul > li {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.plan-cards .plan-cards-card {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.plan-cards .plan-cards-image {
+  line-height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.plan-cards .plan-cards-image img,
+.plan-cards .plan-cards-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.plan-cards .plan-cards-card:hover .plan-cards-image img {
+  transform: scale(1.04);
+}
+
+.plan-cards .plan-cards-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: #fff;
+  font-size: var(--heading-font-size-m); /* 22px mobile / 28px desktop */
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.plan-cards .plan-cards-title::after {
+  content: "";
+  width: 0.8em;
+  height: 0.8em;
+  flex: none;
+  background-color: currentcolor;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>') center / contain no-repeat;
+}
+
+.plan-cards .plan-cards-card:hover .plan-cards-title {
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .plan-cards ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

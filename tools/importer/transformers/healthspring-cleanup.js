@@ -33,11 +33,18 @@ export default function transform(hookName, element, payload) {
 
   if (hookName === TransformHook.afterTransform) {
     // Non-authorable global chrome (header, footer, skiplinks, back-to-top).
+    // Breadcrumbs and modals are page chrome / interactive overlays; astro
+    // hydration <script>/<style> tags and hidden <leaf-modal> dialogs would
+    // otherwise leak into the imported content as empty sections.
     WebImporter.DOMUtils.remove(element, [
       'leaf-skiplink',
       'leaf-header',
       'footer.leaf-c-footer',
       'leaf-back-to-top',
+      'leaf-breadcrumbs',
+      'leaf-modal',
+      '#content script',
+      '#content style',
     ]);
   }
 }

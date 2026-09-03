@@ -1,0 +1,78 @@
+/* media-cards — side-by-side media promo cards (source: video promos).
+   Image on top, heading + description + transcript link below. */
+
+.media-cards ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.media-cards ul > li {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-cards .media-cards-image {
+  line-height: 0;
+}
+
+.media-cards .media-cards-image img,
+.media-cards .media-cards-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.media-cards .media-cards-body {
+  margin-top: 20px;
+}
+
+.media-cards .media-cards-body > *:first-child {
+  margin-top: 0;
+}
+
+.media-cards h3 {
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-l); /* 26px mobile / 32px desktop */
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--hs-brand);
+}
+
+.media-cards p {
+  margin: 0 0 12px;
+  font-size: var(--body-font-size-s); /* 16px */
+  line-height: 1.4;
+  color: var(--hs-brand);
+}
+
+/* "View transcript" link. */
+.media-cards a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--hs-purple);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.media-cards a:hover {
+  color: var(--hs-magenta);
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .media-cards ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}

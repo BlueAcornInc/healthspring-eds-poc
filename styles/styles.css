@@ -319,3 +319,37 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* Full-bleed brand colour bands (applied via Section Metadata "Style").
+   The coloured background spans the full viewport width while the inner
+   `.section > div` stays capped at 1200px. Text is inverted (white). */
+main .section.navy-section,
+main .section.purple-section,
+main .section.dark-purple-section {
+  color: #fff;
+  margin: 0;
+  padding: 48px 0;
+}
+
+main .section.navy-section,
+main .section.dark-purple-section {
+  background-color: var(--hs-navy);
+}
+
+main .section.purple-section {
+  background-color: var(--hs-purple);
+}
+
+main .section.navy-section :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.purple-section :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.dark-purple-section :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  main .section.navy-section,
+  main .section.purple-section,
+  main .section.dark-purple-section {
+    padding: 64px 0;
+  }
+}
