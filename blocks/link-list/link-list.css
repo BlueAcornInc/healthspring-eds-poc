@@ -1,0 +1,35 @@
+/* link-list — "Learn More About Our Health Care Community" resource link list.
+   Source: navy H4 heading (32px/700) above a vertical list of purple text
+   links (16px/400 #9E28B5) on the cream page background. */
+
+.link-list .link-list-body h4 {
+  margin: 0 0 16px;
+  color: var(--hs-brand);
+  font-size: var(--heading-font-size-l); /* ~28-32px */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.link-list .link-list-body ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link-list .link-list-body li {
+  margin: 0;
+  padding: 4px 0;
+}
+
+.link-list .link-list-body a:any-link {
+  color: var(--hs-purple);
+  font-size: var(--body-font-size-s); /* 16px */
+  font-weight: 400;
+  line-height: 1.33;
+  text-decoration: none;
+}
+
+.link-list .link-list-body a:hover {
+  color: var(--hs-magenta);
+  text-decoration: underline;
+}

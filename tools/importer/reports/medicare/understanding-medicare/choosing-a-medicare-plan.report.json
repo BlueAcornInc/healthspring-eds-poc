@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.healthspring.com/medicare/understanding-medicare/choosing-a-medicare-plan",
+  "path": "medicare/understanding-medicare/choosing-a-medicare-plan",
+  "timestamp": "2026-09-03T21:58:39.778Z",
+  "title": "Medicare Choices: Select a Plan in Three Simple Steps | HealthSpring",
+  "template": "understanding-medicare",
+  "blocks": [
+    "widget",
+    "promo-card",
+    "link-list",
+    "plan-select"
+  ]
+}

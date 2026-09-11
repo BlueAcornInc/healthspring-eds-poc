@@ -10,11 +10,24 @@ const CHEVRON_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="fal
  * @returns {Promise<Document|null>}
  */
 async function loadNavFragment() {
-  let resp = await fetch('/content/nav.plain.html');
-  if (!resp.ok) resp = await fetch('/nav.plain.html');
+  let base = '/content/nav.plain.html';
+  let resp = await fetch(base);
+  if (!resp.ok) {
+    base = '/nav.plain.html';
+    resp = await fetch(base);
+  }
   if (!resp.ok) return null;
   const html = await resp.text();
-  return new DOMParser().parseFromString(html, 'text/html');
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  // Resolve relative image paths against the fragment location, not the
+  // current page URL (which breaks on nested pages like /medicare/...).
+  doc.querySelectorAll('img[src]').forEach((img) => {
+    const src = img.getAttribute('src');
+    if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
+      img.src = new URL(src, new URL(base, window.location.href)).href;
+    }
+  });
+  return doc;
 }
 
 /**

@@ -6,8 +6,35 @@
         "https://www.healthspring.com/about-us"
       ],
       "representativeUrl": "https://www.healthspring.com/about-us",
-      "description": "To be named in naming step",
-      "blocks": [],
+      "description": "HealthSpring About Us interior page: full-bleed navy brand hero, intro copy (default content), 'Explore Our Plans' 4-up plan navigator cards, purple 'we understand' promo band, and a 'Learn More' community resource link list.",
+      "blocks": [
+        {
+          "name": "about-hero",
+          "instances": [
+            "#healthspring-about-us-hero"
+          ],
+          "section": "navy (block variant)"
+        },
+        {
+          "name": "plan-select",
+          "instances": [
+            "#content > div:nth-of-type(3)"
+          ]
+        },
+        {
+          "name": "promo-band",
+          "instances": [
+            "#content > div:nth-of-type(4)"
+          ],
+          "section": "purple"
+        },
+        {
+          "name": "link-list",
+          "instances": [
+            "#content > div:nth-of-type(5)"
+          ]
+        }
+      ],
       "urlPattern": "/*"
     },
     {
@@ -16,8 +43,49 @@
         "https://www.healthspring.com/medicare/medicare-advantage"
       ],
       "representativeUrl": "https://www.healthspring.com/medicare/medicare-advantage",
-      "description": "To be named in naming step",
-      "blocks": [],
+      "description": "HealthSpring Medicare Advantage interior page: secondary hero + plan-finder, value-prop benefit cards, colour promo bands, understanding-medicare link callout, video media cards, keep-shopping plan cards",
+      "blocks": [
+        {
+          "name": "medicare-hero",
+          "instances": [
+            "#medicare-advantage-hero-v2"
+          ],
+          "section": "purple"
+        },
+        {
+          "name": "benefit-cards",
+          "instances": [
+            "#content > div:nth-of-type(3)"
+          ]
+        },
+        {
+          "name": "promo-band",
+          "instances": [
+            "#content > div:nth-of-type(5)",
+            "#content > div:nth-of-type(8)"
+          ],
+          "section": "navy / purple"
+        },
+        {
+          "name": "link-callout",
+          "instances": [
+            "#content > div:nth-of-type(6)"
+          ]
+        },
+        {
+          "name": "media-cards",
+          "instances": [
+            "#content > div:nth-of-type(7)"
+          ]
+        },
+        {
+          "name": "plan-cards",
+          "instances": [
+            "#content > div:nth-of-type(11)"
+          ],
+          "section": "dark-purple"
+        }
+      ],
       "urlPattern": "/medicare/*"
     },
     {
@@ -26,8 +94,39 @@
         "https://www.healthspring.com/medicare/understanding-medicare/choosing-a-medicare-plan"
       ],
       "representativeUrl": "https://www.healthspring.com/medicare/understanding-medicare/choosing-a-medicare-plan",
-      "description": "To be named in naming step",
-      "blocks": [],
+      "description": "HealthSpring 'Understanding Medicare' long-form article (Choosing a Medicare Plan): purple title-band hero (default content), 'Shop and Compare Plans' plan-finder widget, article body (headings/paragraphs/lists as default content), an inline navy 'Need Medicare Coverage?' promo-card, a 'Related' link-list, and an 'Explore Our Plans and Policies' plan-select card grid. Mostly default content per David's-Model.",
+      "blocks": [
+        {
+          "name": "widget",
+          "instances": [
+            "#content > leaf-sticky-banner"
+          ]
+        },
+        {
+          "name": "promo-card",
+          "instances": [
+            "#content > div:nth-of-type(3)"
+          ]
+        },
+        {
+          "name": "link-list",
+          "instances": [
+            "#content > div:nth-of-type(6)"
+          ]
+        },
+        {
+          "name": "plan-select",
+          "instances": [
+            "#content > div:nth-of-type(7)"
+          ]
+        }
+      ],
+      "sectionStyles": [
+        {
+          "selector": "#healthspring-choosing-medicare-plan-hero",
+          "style": "purple"
+        }
+      ],
       "urlPattern": "/medicare/understanding-medicare/*"
     }
   ]

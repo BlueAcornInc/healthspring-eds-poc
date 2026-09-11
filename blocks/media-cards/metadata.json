@@ -1,0 +1,31 @@
+{
+  "variantName": "media-cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-03T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.healthspring.com/medicare/medicare-advantage",
+    "originPage": "Medicare Advantage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "media",
+    "imagePattern": "photo-top"
+  },
+  "contentPattern": {
+    "structure": "image on top + heading + description + link per card",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["video/media promo cards with a photo and a link"],
+    "notSuitableFor": ["text-only cards", "icon feature grids"]
+  },
+  "usage": {
+    "pagesUsing": ["/medicare/medicare-advantage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-03T00:00:00.000Z"
+  }
+}

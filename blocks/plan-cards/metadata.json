@@ -1,0 +1,31 @@
+{
+  "variantName": "plan-cards",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-09-03T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.healthspring.com/medicare/medicare-advantage",
+    "originPage": "Medicare Advantage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "inverted",
+    "density": "comfortable",
+    "purpose": "navigation",
+    "imagePattern": "photo"
+  },
+  "contentPattern": {
+    "structure": "large clickable image cards with a linked title, on a dark band",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["'keep shopping' / cross-sell image card grids on a dark band"],
+    "notSuitableFor": ["text-only cards"]
+  },
+  "usage": {
+    "pagesUsing": ["/medicare/medicare-advantage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-03T00:00:00.000Z"
+  }
+}

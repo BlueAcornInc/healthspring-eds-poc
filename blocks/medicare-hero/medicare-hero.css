@@ -1,0 +1,109 @@
+/* medicare-hero — interior "secondary" hero on a full-bleed purple band.
+   Source: healthspring.com Medicare Advantage hero. White text, lifestyle photo
+   on the right (desktop) / top (mobile), white "Shop and Compare Plans" card. */
+
+/* Full-bleed: cancel the section max-width/padding. The purple band comes from
+   the purple-section metadata style. */
+.medicare-hero-container .medicare-hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.medicare-hero {
+  position: relative;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+  color: #fff;
+}
+
+/* --- image (mobile: full-width on top) --- */
+.medicare-hero .medicare-hero-image {
+  margin: 0 -24px 24px;
+  line-height: 0;
+}
+
+.medicare-hero .medicare-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 390 / 260;
+  object-fit: cover;
+}
+
+/* --- content --- */
+.medicare-hero .medicare-hero-content h1 {
+  margin: 0 0 24px;
+  color: #fff;
+  font-size: var(--heading-font-size-xxl); /* 40px mobile / 64px desktop */
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+/* white "Shop and Compare Plans" card */
+.medicare-hero .medicare-hero-shop {
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  color: var(--hs-brand);
+}
+
+.medicare-hero .medicare-hero-shop h2 {
+  margin: 0 0 16px;
+  color: var(--hs-brand);
+  font-size: var(--heading-font-size-l); /* 26px / 32px */
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.medicare-hero .medicare-hero-shop p {
+  margin: 16px 0 0;
+  color: var(--hs-brand);
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+}
+
+.medicare-hero .medicare-hero-shop p a:any-link {
+  color: var(--hs-magenta);
+  font-weight: 700;
+}
+
+/* the plan-finder widget lives inside the shop card */
+.medicare-hero .medicare-hero-shop .widget {
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .medicare-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: 48px;
+    min-height: 420px;
+    padding: 48px 32px;
+  }
+
+  /* image on the right */
+  .medicare-hero .medicare-hero-image {
+    order: 2;
+    margin: 0;
+    align-self: stretch;
+  }
+
+  .medicare-hero .medicare-hero-image img {
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 16px;
+  }
+
+  /* content on the left */
+  .medicare-hero .medicare-hero-content {
+    order: 1;
+  }
+
+  .medicare-hero .medicare-hero-shop {
+    padding: 32px;
+  }
+}

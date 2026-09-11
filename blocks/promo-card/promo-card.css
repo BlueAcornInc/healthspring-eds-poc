@@ -1,0 +1,74 @@
+/* promo-card — inline navy "Need Medicare Coverage?" CTA card.
+   Source: healthspring.com choosing-a-medicare-plan article (an inline
+   <leaf-promo color="dark-blue"> that renders as a rounded navy card within the
+   article measure — NOT a full-bleed band). Navy bg (#1F1647), 30px radius,
+   white heading/body, and a white text CTA with a trailing arrow. */
+
+.promo-card {
+  box-sizing: border-box;
+  padding: 32px;
+  border-radius: 30px;
+  background-color: var(--hs-navy);
+  color: #fff;
+}
+
+.promo-card .promo-card-content {
+  max-width: 720px;
+}
+
+.promo-card .promo-card-content > * {
+  margin: 0;
+}
+
+.promo-card h3 {
+  margin: 0;
+  color: #fff;
+  font-size: var(--heading-font-size-l); /* 26px mobile / 32px desktop */
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.promo-card p {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: var(--body-font-size-s); /* 16px */
+  line-height: 1.5;
+}
+
+/* CTA: plain white text link with a trailing arrow (source has no pill here). */
+.promo-card .promo-card-cta-wrapper {
+  margin-top: 24px;
+}
+
+.promo-card a.promo-card-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  line-height: 1.33;
+  text-decoration: none;
+}
+
+.promo-card a.promo-card-cta:hover,
+.promo-card a.promo-card-cta:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.promo-card a.promo-card-cta::after {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  flex: none;
+  background-color: currentcolor;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>') center / contain no-repeat;
+}
+
+@media (width >= 900px) {
+  .promo-card {
+    padding: 40px;
+  }
+}

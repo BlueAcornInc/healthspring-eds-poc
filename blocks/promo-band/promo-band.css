@@ -1,0 +1,75 @@
+/* promo-band — full-width coloured promo band with inverted (white) text.
+   The band background/padding is supplied by the section style
+   (navy-section / purple-section / dark-purple-section). This block styles the
+   inner content: heading, body, list, and a white pill CTA. */
+
+.promo-band .promo-band-content {
+  max-width: 720px;
+}
+
+.promo-band .promo-band-content > *:first-child {
+  margin-top: 0;
+}
+
+.promo-band h2 {
+  margin: 0;
+  color: #fff;
+  font-size: var(--heading-font-size-xl); /* 32px mobile / 48px desktop */
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.promo-band p {
+  margin: 16px 0 0;
+  color: #fff;
+  font-size: var(--body-font-size-s); /* 16px */
+  line-height: 1.33;
+}
+
+.promo-band ul {
+  margin: 16px 0 0;
+  padding-left: 1.2em;
+}
+
+.promo-band li {
+  margin: 8px 0 0;
+  color: #fff;
+  font-size: var(--body-font-size-s);
+  line-height: 1.33;
+}
+
+/* White pill CTA (source: inverted primary button — white bg, navy text). */
+.promo-band .promo-band-cta-wrapper {
+  margin-top: 24px;
+}
+
+.promo-band a.promo-band-cta:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 900px;
+  background-color: #fff;
+  color: var(--hs-navy);
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.promo-band a.promo-band-cta:hover,
+.promo-band a.promo-band-cta:focus-visible {
+  background-color: var(--hs-cream);
+  border-color: var(--hs-cream);
+  color: var(--hs-navy);
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .promo-band h2 {
+    font-size: var(--heading-font-size-xl);
+  }
+}

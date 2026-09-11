@@ -1,0 +1,31 @@
+{
+  "variantName": "promo-band",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-09-03T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.healthspring.com/medicare/medicare-advantage",
+    "originPage": "Medicare Advantage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "inverted",
+    "density": "comfortable",
+    "purpose": "promo",
+    "imagePattern": "none"
+  },
+  "contentPattern": {
+    "structure": "heading + body/list + pill CTA on a full-bleed colour band (colour via section metadata)",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": ["full-width colour promo/CTA bands (navy/purple/dark-purple)"],
+    "notSuitableFor": ["cards", "sections with imagery"]
+  },
+  "usage": {
+    "pagesUsing": ["/medicare/medicare-advantage"],
+    "reuseCount": 2,
+    "lastUsed": "2026-09-03T00:00:00.000Z"
+  }
+}

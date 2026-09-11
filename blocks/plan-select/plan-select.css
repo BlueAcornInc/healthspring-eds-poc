@@ -1,0 +1,77 @@
+/* plan-select — "Explore Our Plans" 4-up navigator grid on a white section.
+   Each card: a rounded photo (top corners) with a bold purple linked title
+   below, sitting in a subtle bordered card. Source computed styles: title
+   20px/700 #9E28B5, image radius 16px top, 4 columns desktop. */
+
+.plan-select ul {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.plan-select ul > li {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.plan-select .plan-select-card {
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgb(31 22 71 / 12%);
+  border-radius: 16px;
+  background-color: #fff;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.plan-select .plan-select-image {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.plan-select .plan-select-image img,
+.plan-select .plan-select-image picture {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.plan-select .plan-select-title {
+  display: block;
+  padding: 16px 20px 24px;
+  color: var(--hs-purple);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.plan-select .plan-select-card:hover {
+  box-shadow: 0 8px 24px rgb(31 22 71 / 12%);
+  transform: translateY(-2px);
+}
+
+.plan-select .plan-select-card:hover .plan-select-title {
+  color: var(--hs-magenta);
+  text-decoration: underline;
+}
+
+@media (width >= 768px) {
+  .plan-select ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 1000px) {
+  .plan-select ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
