@@ -1,3 +1,5 @@
+import { decorateBlock, loadBlock } from '../../scripts/aem.js';
+
 /**
  * medicare-hero — "secondary" interior hero (purple band).
  * Source: healthspring.com Medicare Advantage hero.
@@ -46,5 +48,14 @@ export default function decorate(block) {
   if (img) {
     img.setAttribute('loading', 'eager');
     img.setAttribute('fetchpriority', 'high');
+  }
+
+  // The plan-finder widget is auto-blocked (scripts.js) but nested inside this
+  // block, so the core decorateBlocks (top-level only) never loads it. Decorate
+  // and load it explicitly here.
+  const widget = block.querySelector('.widget');
+  if (widget && widget.dataset.blockStatus !== 'loaded') {
+    decorateBlock(widget);
+    loadBlock(widget);
   }
 }

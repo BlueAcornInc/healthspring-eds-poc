@@ -1,0 +1,31 @@
+{
+  "variantName": "medicare-hero",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-09-03T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.healthspring.com/medicare/medicare-advantage",
+    "originPage": "Medicare Advantage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "inverted",
+    "density": "comfortable",
+    "purpose": "hero",
+    "imagePattern": "photo-side"
+  },
+  "contentPattern": {
+    "structure": "H1 + white shop card (heading + plan-finder widget + phone) beside a lifestyle photo, on a purple band",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": ["interior secondary heroes with a side photo and an embedded tool/widget"],
+    "notSuitableFor": ["full-bleed background-image heroes (use hero-primary)"]
+  },
+  "usage": {
+    "pagesUsing": ["/medicare/medicare-advantage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-09-03T00:00:00.000Z"
+  }
+}

@@ -1,7 +1,8 @@
 /**
- * plan-cards — "Let's keep shopping" grid of large interactive image cards.
+ * plan-select — "Explore Our Plans" 4-up plan navigator grid.
  * Each authored row is [ image | linked title ]. The whole card is made
- * clickable via the title's link. Sits on a dark section band (dark-purple).
+ * clickable via the title's link. Light theme (white section); the plan title
+ * is a purple link below a rounded photo.
  */
 export default function decorate(block) {
   const ul = document.createElement('ul');
@@ -17,19 +18,19 @@ export default function decorate(block) {
     const link = titleCell && titleCell.querySelector('a[href]');
 
     const card = link ? document.createElement('a') : document.createElement('div');
-    card.className = 'plan-cards-card';
+    card.className = 'plan-select-card';
     if (link) card.href = link.getAttribute('href');
 
     if (imgCell) {
       const pic = imgCell.querySelector('picture') || imgCell.querySelector('img');
       const wrap = document.createElement('div');
-      wrap.className = 'plan-cards-image';
+      wrap.className = 'plan-select-image';
       wrap.append(pic);
       card.append(wrap);
     }
 
     const title = document.createElement('span');
-    title.className = 'plan-cards-title';
+    title.className = 'plan-select-title';
     let titleText = '';
     if (link) titleText = link.textContent.trim();
     else if (titleCell) titleText = titleCell.textContent.trim();

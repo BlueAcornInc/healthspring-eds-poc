@@ -1,5 +1,3 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
 /**
  * media-cards — side-by-side media promo cards (source: the two video promos).
  * Each authored row is [ image | text (heading + description + transcript link) ].
@@ -34,12 +32,6 @@ export default function decorate(block) {
     li.append(body);
 
     ul.append(li);
-  });
-
-  // Optimise carried-over images.
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimized = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    img.closest('picture').replaceWith(optimized);
   });
 
   block.textContent = '';

@@ -26,9 +26,11 @@ export default function parse(element, { document }) {
   const heading = banner.querySelector('h1, h2, h3, h4, h5, h6');
 
   // Phone / hours callout below the widget (kept as default content).
-  // It is the paragraph that is NOT inside the interactive plan-finder form.
+  // These are the paragraphs that are NOT inside the interactive plan-finder
+  // form (e.g. "Or, call us at ..." and "TTY users, call ..."). The homepage
+  // has a single such paragraph; article pages may split it across two.
   const planFinder = banner.querySelector('.medicare-plan-finder, astro-island');
-  const callout = Array.from(banner.querySelectorAll('p')).find(
+  const callouts = Array.from(banner.querySelectorAll('p')).filter(
     (p) => /\S/.test(p.textContent) && !(planFinder && planFinder.contains(p)),
   );
 
@@ -41,11 +43,11 @@ export default function parse(element, { document }) {
   const cells = [[link]];
   const block = WebImporter.Blocks.createBlock(document, { name: 'widget', cells });
 
-  // Assemble output: heading (default content) + widget block + callout (default content).
+  // Assemble output: heading (default content) + widget block + callouts (default content).
   const output = [];
   if (heading) output.push(heading);
   output.push(block);
-  if (callout) output.push(callout);
+  callouts.forEach((c) => output.push(c));
 
   element.replaceWith(...output);
 }

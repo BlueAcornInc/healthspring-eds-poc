@@ -353,3 +353,57 @@ main .section.dark-purple-section :is(h1, h2, h3, h4, h5, h6, p, li) {
     padding: 64px 0;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Template: understanding-medicare — long-form editorial article.
+ * The source constrains running body copy (headings, paragraphs, lists)
+ * to a readable measure (~720px) while structured blocks (promo-card,
+ * plan-select) and coloured bands span the full content width.
+ * ------------------------------------------------------------------ */
+
+/* Constrain default-content prose to a comfortable measure. Blocks keep the
+   full 1200px section width (they carry their own wrappers, not
+   default-content-wrapper). */
+body.understanding-medicare main .section .default-content-wrapper {
+  max-width: 780px;
+  margin-right: auto;
+  margin-left: 0; /* left-align the article measure (matches source) */
+}
+
+/* Comfortable article rhythm for the running copy. */
+body.understanding-medicare main .default-content-wrapper p,
+body.understanding-medicare main .default-content-wrapper li {
+  font-size: var(--body-font-size-m); /* 18px */
+  line-height: 1.6;
+}
+
+body.understanding-medicare main .default-content-wrapper h2 {
+  margin-top: 1.2em;
+  font-size: var(--heading-font-size-l); /* 26px mobile / 32px desktop */
+  font-weight: 700;
+}
+
+body.understanding-medicare main .default-content-wrapper h3 {
+  font-size: var(--heading-font-size-m);
+  font-weight: 700;
+}
+
+body.understanding-medicare main .default-content-wrapper ul,
+body.understanding-medicare main .default-content-wrapper ol {
+  padding-left: 1.4em;
+}
+
+body.understanding-medicare main .default-content-wrapper li {
+  margin: 8px 0 0;
+}
+
+body.understanding-medicare main .default-content-wrapper li p {
+  margin: 0;
+}
+
+/* The trailing legal / disclosures paragraphs read as fine print. */
+body.understanding-medicare main .section:last-of-type .default-content-wrapper p {
+  font-size: var(--body-font-size-xs); /* 14px */
+  line-height: 1.5;
+  color: var(--dark-color);
+}
