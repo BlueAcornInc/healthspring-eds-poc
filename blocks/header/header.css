@@ -180,17 +180,21 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 }
 
 /* ---- sections drawer (mobile) ---- */
-header nav .nav-sections,
-header nav .nav-secondary {
+header nav .nav-sections {
   display: none;
 }
 
-header nav[aria-expanded='true'] .nav-sections,
-header nav[aria-expanded='true'] .nav-secondary {
+/* full-height drawer panel below the collapsed bar */
+header nav[aria-expanded='true'] .nav-sections {
+  position: fixed;
+  z-index: 19;
+  inset: var(--hs-nav-height) 0 0;
   display: block;
-  border-top: 1px solid var(--hs-border);
-  padding: 8px 0 16px;
+  overflow-y: auto;
+  padding: 8px 20px 24px;
+  background: #fff;
 }
+
 
 header nav .nav-sections ul,
 header nav .nav-secondary ul {
