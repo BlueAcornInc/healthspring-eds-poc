@@ -304,13 +304,15 @@ header nav .nav-secondary ul li a {
     gap: 4px;
   }
 
-  /* dropdown panel */
-  header nav .nav-group-panel {
+  /* dropdown panel — flex row of fixed-width columns. Scoped under
+     .nav-sections so it out-specifies the base
+     `header nav .nav-sections ul { padding: 0 }` reset (which would
+     otherwise win on specificity and flatten the panel's padding). */
+  header nav .nav-sections .nav-group-panel {
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 30;
-    min-width: 280px;
     padding: 16px 20px;
     background: var(--hs-panel-bg);
     border: 1px solid var(--hs-border);
@@ -318,19 +320,16 @@ header nav .nav-secondary ul li a {
     box-shadow: 0 8px 20px rgb(0 0 0 / 12%);
   }
 
+  /* lay the columns out as a flex row only when the group is open (this
+     selector also out-specifies the base `display: none`). */
   header nav .nav-group[aria-expanded='true'] .nav-group-panel {
-    display: block;
+    display: flex;
+    gap: 32px;
   }
 
-  header nav .nav-group-panel > li {
-    display: inline-block;
-    vertical-align: top;
-    min-width: 220px;
-    margin-right: 24px;
-  }
-
-  header nav .nav-group-panel > li:last-child {
-    margin-right: 0;
+  /* each column a fixed width; long link labels wrap rather than widen it */
+  header nav .nav-sections .nav-group-panel > li {
+    flex: 0 0 220px;
   }
 
   header nav .nav-secondary {
