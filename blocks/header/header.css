@@ -290,15 +290,14 @@ header nav .nav-secondary ul li a {
 @media (width >= 900px) {
   header nav {
     display: grid;
-    grid-template-columns: auto 1fr;
     grid-template-areas:
-      'brand secondary'
-      'brand utility'
-      'sections sections';
-    column-gap: 24px;
+      'brand'
+      'sections';
     padding: 0 32px;
   }
 
+  /* Brand row spans full width; the logo's auto right-margin pushes the
+     utility group to the right edge of the grid. */
   header nav .nav-brand {
     grid-area: brand;
     align-items: center;
@@ -309,10 +308,14 @@ header nav .nav-secondary ul li a {
   }
 
   header nav .nav-utility {
-    grid-area: utility;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     align-self: center;
+  }
+
+  /* show the Search label on desktop (icon-only is mobile-specific) */
+  header nav .nav-utility .nav-search span {
+    display: inline;
   }
 
   /* Main-menu row: full-bleed navy band with white text (matches source).
@@ -463,17 +466,24 @@ header nav .nav-secondary ul li a {
 
   /* --- H3: pill / button treatments --- */
 
-  /* Search: rounded pill button in the top utility row */
+  /* Search: purple pill button (icon + "Search" label) in the utility row */
   header nav .nav-utility .nav-search {
-    padding: 8px 16px;
-    border: 1px solid var(--hs-brand);
+    padding: 8px 18px;
+    border: 1px solid var(--hs-purple, #9e28b5);
     border-radius: 999px;
+    background: var(--hs-purple, #9e28b5);
+    color: #fff;
     font-size: 14px;
   }
 
   header nav .nav-utility .nav-search:hover {
-    background: var(--hs-brand);
+    background: var(--hs-magenta);
+    border-color: var(--hs-magenta);
     color: #fff;
+  }
+
+  header nav .nav-utility .nav-search svg {
+    fill: currentcolor;
   }
 
   /* Phone number: pill on the navy row (light outline on navy) */
