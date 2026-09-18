@@ -356,28 +356,57 @@ header nav .nav-secondary ul li a {
   }
 }
 
-/* desktop: fold secondary links into the utility bar */
+/* desktop: top utility row groups + navy-row member controls */
 @media (width >= 900px) {
-  header nav .nav-secondary {
-    display: block;
-    grid-area: secondary;
-    border: 0;
-    padding: 8px 0 0;
-  }
-
-  header nav .nav-secondary ul {
+  /* Brokers/Employers/Providers folded into the top utility row */
+  header nav .nav-utility .nav-secondary-links {
     display: flex;
     gap: 18px;
-    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  header nav .nav-secondary ul li a {
+  header nav .nav-utility .nav-secondary-links li {
+    margin: 0;
+    border: 0;
+  }
+
+  header nav .nav-utility .nav-secondary-links a {
     padding: 0;
     font-size: 13px;
     font-weight: 600;
   }
 
-  header nav .nav-secondary ul li a:hover {
+  header nav .nav-utility a:hover {
     color: var(--hs-magenta);
+  }
+
+  /* vertical divider between the secondary links and Español/Search */
+  header nav .nav-utility-divider {
+    width: 1px;
+    height: 18px;
+    background: var(--hs-border);
+  }
+
+  /* phone + Member Log in on the right of the navy menu row */
+  header nav .nav-sections .nav-member {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 100%;
+  }
+
+  header nav .nav-sections .nav-member p {
+    margin: 0;
+  }
+
+  header nav .nav-sections .nav-member a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
   }
 }

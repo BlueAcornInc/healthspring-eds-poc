@@ -99,15 +99,43 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
+  const navSections = nav.querySelector('.nav-sections');
+  const navSecondary = nav.querySelector('.nav-secondary');
+
   // Brand row: first link is the logo; remaining links are utility links.
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
     const paragraphs = [...navBrand.querySelectorAll(':scope > p')];
     const [logoP, ...utilPs] = paragraphs;
     if (logoP) logoP.classList.add('nav-logo');
+
+    // Utility paragraphs split by destination:
+    //  - phone (tel:) and Member Log in -> right side of the navy menu row
+    //  - everything else (e.g. Español) -> top white utility row
+    const isMemberRow = (p) => p.querySelector('a[href^="tel:"]')
+      || /member log\s?in/i.test(p.textContent);
+    const memberPs = utilPs.filter(isMemberRow);
+    const topPs = utilPs.filter((p) => !isMemberRow(p));
+
     const utilWrapper = document.createElement('div');
     utilWrapper.className = 'nav-utility';
-    utilPs.forEach((p) => utilWrapper.append(p));
+
+    // Fold the secondary links (Brokers/Employers/Providers) into the top
+    // utility row, ahead of the remaining utility items, with a divider.
+    if (navSecondary) {
+      const secList = navSecondary.querySelector('ul');
+      if (secList) {
+        secList.classList.add('nav-secondary-links');
+        utilWrapper.append(secList);
+        const divider = document.createElement('span');
+        divider.className = 'nav-utility-divider';
+        divider.setAttribute('aria-hidden', 'true');
+        utilWrapper.append(divider);
+      }
+      navSecondary.remove();
+    }
+
+    topPs.forEach((p) => utilWrapper.append(p));
 
     // Search control (built in JS per the nav.plain.html contract).
     const search = document.createElement('a');
@@ -117,10 +145,17 @@ export default async function decorate(block) {
     search.innerHTML = `${SEARCH_ICON}<span>Search</span>`;
     utilWrapper.append(search);
     navBrand.append(utilWrapper);
+
+    // Phone + Member Log in sit on the right of the navy menu row.
+    if (memberPs.length && navSections) {
+      const memberWrapper = document.createElement('div');
+      memberWrapper.className = 'nav-member';
+      memberPs.forEach((p) => memberWrapper.append(p));
+      navSections.append(memberWrapper);
+    }
   }
 
   // Nav groups (expandable categories).
-  const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope > ul > li').forEach((li) => {
       if (li.querySelector(':scope > ul')) decorateGroup(li, navSections);
