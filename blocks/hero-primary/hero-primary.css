@@ -92,9 +92,10 @@
   }
 
   /* text overlays the left (purple) region, vertically centred.
-     Horizontal padding keeps the text on the same 1200px grid as the
-     header (so its left edge aligns with the logo) while never dropping
-     below a 32px gutter on narrower desktop widths. */
+     Horizontal padding keeps the text on the same 1200px content grid as
+     the header (max-width 1264px + 32px padding) so its left edge aligns
+     with the logo, while never dropping below a 32px gutter on narrower
+     desktop widths. */
   .hero-primary > div:last-child {
     position: relative;
     box-sizing: border-box;
@@ -103,7 +104,7 @@
     justify-content: center;
     min-height: 417px;
     margin: 0 auto;
-    padding: 48px max(32px, calc((100% - 1200px) / 2));
+    padding: 48px max(32px, calc((100% - 1264px) / 2 + 32px));
   }
 
   /* Constrain the copy to the left region so it never overlaps the

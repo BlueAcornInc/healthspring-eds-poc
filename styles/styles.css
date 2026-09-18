@@ -330,6 +330,7 @@ main .section.navy,
 main .section.navy-section,
 main .section.purple,
 main .section.purple-section,
+main .section.dark-purple,
 main .section.dark-purple-section {
   color: #fff;
   margin: 0;
@@ -338,6 +339,7 @@ main .section.dark-purple-section {
 
 main .section.navy,
 main .section.navy-section,
+main .section.dark-purple,
 main .section.dark-purple-section {
   background-color: var(--hs-navy);
 }
@@ -351,6 +353,7 @@ main .section.navy :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.navy-section :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.purple :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.purple-section :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.dark-purple :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.dark-purple-section :is(h1, h2, h3, h4, h5, h6, p, li) {
   color: #fff;
 }
@@ -368,6 +371,7 @@ main .section.white-padded {
   main .section.navy-section,
   main .section.purple,
   main .section.purple-section,
+  main .section.dark-purple,
   main .section.dark-purple-section,
   main .section.white-padded {
     padding: 64px 0;

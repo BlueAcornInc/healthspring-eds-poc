@@ -82,6 +82,10 @@
     align-items: center;
     column-gap: 48px;
     min-height: 420px;
+
+    /* Mirror the header's grid (max-width 1264px + 32px padding = 1200px
+       content) so the hero content's left edge aligns with the logo/nav. */
+    max-width: 1264px;
     padding: 48px 32px;
   }
 
