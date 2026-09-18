@@ -400,9 +400,16 @@ header nav .nav-secondary ul li a {
     gap: 32px;
   }
 
-  /* each column a fixed width; long link labels wrap rather than widen it */
+  /* Each column sizes to its content (min 200px) so the panel background
+     stretches to fit the longest link on a single line instead of wrapping
+     inside a too-narrow fixed column. */
   header nav .nav-sections .nav-group-panel > li {
-    flex: 0 0 220px;
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+
+  header nav .nav-sections .nav-group-panel a {
+    white-space: nowrap;
   }
 
   header nav .nav-secondary {
