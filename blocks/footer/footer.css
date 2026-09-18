@@ -60,7 +60,36 @@ footer li {
   margin-bottom: 8px;
 }
 
-/* links section */
+/* Links section: Resources + Audiences sit side-by-side (2-up) at every
+   width, matching source. The section is a flat sequence of
+   h6 / ul / h6 / ul, so place them explicitly into a 2-col grid:
+   column 1 = Resources (h6+ul), column 2 = Audiences (h6+ul). */
+footer .footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+}
+
+footer .footer-links > :nth-child(1) { /* Resources h6 */
+  grid-column: 1;
+  grid-row: 1;
+}
+
+footer .footer-links > :nth-child(2) { /* Resources ul */
+  grid-column: 1;
+  grid-row: 2;
+}
+
+footer .footer-links > :nth-child(3) { /* Audiences h6 */
+  grid-column: 2;
+  grid-row: 1;
+}
+
+footer .footer-links > :nth-child(4) { /* Audiences ul */
+  grid-column: 2;
+  grid-row: 2;
+}
+
 footer .footer-links ul {
   font-size: 15px;
 }
@@ -148,8 +177,9 @@ footer .footer-to-top svg {
   }
 
   footer .footer-links {
-    display: flex;
-    gap: 96px;
+    /* wider gutter between the two columns on desktop */
+    column-gap: 96px;
+    justify-content: start;
   }
 
   footer .footer-connect {
