@@ -322,8 +322,13 @@ main .section.highlight {
 
 /* Full-bleed brand colour bands (applied via Section Metadata "Style").
    The coloured background spans the full viewport width while the inner
-   `.section > div` stays capped at 1200px. Text is inverted (white). */
+   `.section > div` stays capped at 1200px. Text is inverted (white).
+   NOTE: the importer emits the short style names `navy` and `purple`
+   (Section Metadata "Style" value), so those class names are matched here
+   alongside the longer `-section` aliases. */
+main .section.navy,
 main .section.navy-section,
+main .section.purple,
 main .section.purple-section,
 main .section.dark-purple-section {
   color: #fff;
@@ -331,25 +336,40 @@ main .section.dark-purple-section {
   padding: 48px 0;
 }
 
+main .section.navy,
 main .section.navy-section,
 main .section.dark-purple-section {
   background-color: var(--hs-navy);
 }
 
+main .section.purple,
 main .section.purple-section {
   background-color: var(--hs-purple);
 }
 
+main .section.navy :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.navy-section :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.purple :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.purple-section :is(h1, h2, h3, h4, h5, h6, p, li),
 main .section.dark-purple-section :is(h1, h2, h3, h4, h5, h6, p, li) {
   color: #fff;
 }
 
+/* `white-padded` — white band with extra vertical padding (emitted by the
+   importer for the closing CTA section). */
+main .section.white-padded {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 48px 0;
+}
+
 @media (width >= 900px) {
+  main .section.navy,
   main .section.navy-section,
+  main .section.purple,
   main .section.purple-section,
-  main .section.dark-purple-section {
+  main .section.dark-purple-section,
+  main .section.white-padded {
     padding: 64px 0;
   }
 }

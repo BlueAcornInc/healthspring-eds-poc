@@ -91,21 +91,25 @@
     object-position: 50% 50%;
   }
 
-  /* text overlays the left (purple) region, vertically centred */
+  /* text overlays the left (purple) region, vertically centred.
+     Horizontal padding keeps the text on the same 1200px grid as the
+     header (so its left edge aligns with the logo) while never dropping
+     below a 32px gutter on narrower desktop widths. */
   .hero-primary > div:last-child {
     position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1200px;
     min-height: 417px;
     margin: 0 auto;
-    padding: 48px 32px;
+    padding: 48px max(32px, calc((100% - 1200px) / 2));
   }
 
+  /* Constrain the copy to the left region so it never overlaps the
+     subject (the man) baked into the right of the hero image. */
   .hero-primary > div:last-child > div {
-    max-width: 660px;
+    max-width: 480px;
   }
 
   .hero-primary p {

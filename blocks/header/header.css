@@ -221,8 +221,15 @@ header nav .nav-group-panel a:hover {
   color: var(--hs-magenta);
 }
 
-/* top-level plain links (e.g. Find Care) */
-header nav .nav-sections > ul > li > a {
+/* top-level plain links (e.g. Find Care). The link may sit directly under
+   the <li> or be wrapped in a <p> depending on how the nav was authored, so
+   match both and neutralise the paragraph's default block margins. */
+header nav .nav-sections > ul > li > p {
+  margin: 0;
+}
+
+header nav .nav-sections > ul > li > a,
+header nav .nav-sections > ul > li > p > a {
   display: block;
   padding: 14px 4px;
   font-size: 16px;
@@ -287,7 +294,8 @@ header nav .nav-secondary ul li a {
   }
 
   header nav .nav-group-toggle,
-  header nav .nav-sections > ul > li > a {
+  header nav .nav-sections > ul > li > a,
+  header nav .nav-sections > ul > li > p > a {
     padding: 16px 12px;
     font-size: 15px;
   }
