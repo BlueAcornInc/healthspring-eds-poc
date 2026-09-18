@@ -2,10 +2,10 @@
   "type": "da",
   "sites": {
     "healthspring-eds-poc": {
-      "previewOrg": "sean-flynn-baici",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json",
+      "previewOrg": "BlueAcornInc",
       "previewSite": "healthspring-eds-poc",
-      "contentHostUrl": "https://content.da.live/sean-flynn-baici/healthspring-eds-poc/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+      "contentHostUrl": "https://content.da.live/BlueAcornInc/healthspring-eds-poc/"
     }
   }
 }
