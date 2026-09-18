@@ -272,14 +272,31 @@ header nav .nav-secondary ul li a {
     align-self: center;
   }
 
+  /* Main-menu row: full-bleed navy band with white text (matches source).
+     The ::before paints navy across the whole viewport while the row's
+     content stays aligned to the 1264px nav grid. */
   header nav .nav-sections {
+    position: relative;
     grid-area: sections;
     display: block;
-    border-top: 1px solid var(--hs-border);
+    margin-top: 0;
+    background: var(--hs-brand);
+    color: #fff;
+  }
+
+  header nav .nav-sections::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    background: var(--hs-brand);
   }
 
   header nav[aria-expanded='true'] .nav-sections {
-    border-top: 1px solid var(--hs-border);
     padding: 0;
   }
 
@@ -298,6 +315,7 @@ header nav .nav-secondary ul li a {
   header nav .nav-sections > ul > li > p > a {
     padding: 16px 12px;
     font-size: 15px;
+    color: #fff; /* white on the navy main-menu band */
   }
 
   header nav .nav-group-toggle {
