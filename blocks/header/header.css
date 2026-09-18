@@ -215,6 +215,7 @@ header nav .nav-group-panel a {
   display: block;
   padding: 8px 0;
   font-size: 15px;
+  color: var(--hs-brand); /* dark text on the light dropdown panel */
 }
 
 header nav .nav-group-panel a:hover {
