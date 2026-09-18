@@ -177,6 +177,7 @@ export default async function decorate(block) {
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
+      <span class="nav-hamburger-label">Menu</span>
     </button>`;
   hamburger.addEventListener('click', () => toggleMenu(nav));
   if (navBrand) navBrand.append(hamburger);

@@ -58,12 +58,6 @@ header nav .nav-logo img {
   height: auto;
 }
 
-header nav .nav-utility {
-  display: none;
-  align-items: center;
-  gap: 20px;
-  font-size: 14px;
-}
 
 header nav .nav-utility p {
   white-space: nowrap;
@@ -100,15 +94,46 @@ header nav .nav-external svg {
   fill: currentcolor;
 }
 
-/* ---- hamburger ---- */
+/* ---- mobile utility (Español + Search) in the white brand row ---- */
+header nav .nav-utility {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  order: 4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* On mobile the Brokers/Employers/Providers group + divider live in the
+   drawer context, not the compact bar. */
+header nav .nav-utility .nav-secondary-links,
+header nav .nav-utility-divider {
+  display: none;
+}
+
+header nav .nav-utility .nav-search span {
+  display: none; /* icon-only search on mobile */
+}
+
+/* ---- hamburger (labelled "Menu") ---- */
 header nav .nav-hamburger {
   display: flex;
   align-items: center;
+  gap: 8px;
   order: 5;
 }
 
+header nav .nav-hamburger-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hs-brand);
+}
+
 header nav .nav-hamburger button {
-  width: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
   height: 32px;
   margin: 0;
   border: 0;
