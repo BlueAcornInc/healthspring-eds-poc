@@ -77,17 +77,18 @@
     object-position: 50% 50%;
   }
 
-  /* text overlays the left (navy) region, vertically centred */
+  /* text overlays the left (navy) region, vertically centred. Horizontal
+     padding keeps the copy on the header's content grid (max-width 1264px
+     + 32px padding) so its left edge aligns with the logo/nav. */
   .about-hero > div:last-child {
     position: relative;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1200px;
     min-height: 417px;
     margin: 0 auto;
-    padding: 48px 32px;
+    padding: 48px max(32px, calc((100% - 1264px) / 2 + 32px));
   }
 
   .about-hero > div:last-child > div {
