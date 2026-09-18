@@ -366,6 +366,27 @@ main .section.white-padded {
   padding: 48px 0;
 }
 
+/* ------------------------------------------------------------------ *
+ * Plan-finder ("Shop and Compare Plans") — ZIP + button on the navy
+ * hero band. The "Shop for a plan" button reads purple (not the default
+ * grey), and the ZIP field + button sit inline.
+ * ------------------------------------------------------------------ */
+main .section.plan-finder-container button,
+main .section.plan-finder-container button.button {
+  border: 0;
+  background: var(--hs-purple);
+  color: #fff;
+}
+
+main .section.plan-finder-container button:hover {
+  background: var(--hs-magenta);
+}
+
+main .section.plan-finder-container input {
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 6px;
+}
+
 @media (width >= 900px) {
   main .section.navy,
   main .section.navy-section,
