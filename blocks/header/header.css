@@ -87,6 +87,19 @@ header nav .nav-search svg {
   fill: currentcolor;
 }
 
+/* external-link icon after top-level links that leave the site (Find Care) */
+header nav .nav-external {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+header nav .nav-external svg {
+  width: 14px;
+  height: 14px;
+  fill: currentcolor;
+}
+
 /* ---- hamburger ---- */
 header nav .nav-hamburger {
   display: flex;

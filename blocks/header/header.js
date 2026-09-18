@@ -3,6 +3,7 @@ const isDesktop = window.matchMedia('(min-width: 900px)');
 
 const SEARCH_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>';
 const CHEVRON_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.12 9.29 12 13.17l3.88-3.88a1 1 0 0 1 1.41 1.42l-4.59 4.59a1 1 0 0 1-1.41 0L6.7 10.71a1 1 0 1 1 1.42-1.42z"/></svg>';
+const EXTERNAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h5v2H7v10h10v-3h2v5H5V5z"/></svg>';
 
 /**
  * Fetches the nav fragment HTML, trying the localhost path first, then the
@@ -159,6 +160,15 @@ export default async function decorate(block) {
   if (navSections) {
     navSections.querySelectorAll(':scope > ul > li').forEach((li) => {
       if (li.querySelector(':scope > ul')) decorateGroup(li, navSections);
+    });
+
+    // Flag top-level menu links that leave the site (e.g. Find Care) with an
+    // external-link icon, matching the source.
+    navSections.querySelectorAll(':scope > ul > li a[href^="http"]').forEach((a) => {
+      if (a.hostname && a.hostname !== window.location.hostname && !a.querySelector('svg')) {
+        a.classList.add('nav-external');
+        a.insertAdjacentHTML('beforeend', EXTERNAL_ICON);
+      }
     });
   }
 
