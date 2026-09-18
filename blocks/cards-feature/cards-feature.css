@@ -2,10 +2,12 @@
 
 /* Values extracted from healthspring.com computed styles. */
 
-/* Full-width cream section band. The section carries the block's container
-   class; styles.css caps the inner div at 1200px which we keep. */
-.section.cards-feature-container {
-  background-color: var(--hs-cream);
+/* Full-width section band. Source renders this section on a single white
+   background (not the cream the `light` section style applies), so force
+   white here and override the section-metadata `light` tint. */
+.section.cards-feature-container,
+main .section.light.cards-feature-container {
+  background-color: var(--background-color, #fff);
   margin: 0;
   padding: 64px 0;
 }
@@ -87,8 +89,16 @@
 /* Fallback decorative circle for empty/missing icons (source used SVG icons
    that did not import; a solid purple disc keeps the layout intact). */
 .cards-feature .cards-feature-card-icon-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   background-color: var(--hs-purple);
+}
+
+.cards-feature .cards-feature-card-icon-placeholder svg {
+  width: 44px;
+  height: 44px;
 }
 
 /* --- Card text --- */
