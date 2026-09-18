@@ -39,7 +39,7 @@
 /* image cell (class added by columns-media.js) — stacks below text on mobile */
 .columns-media > div > .columns-media-img-col {
   order: 1;
-  margin-top: 24px;
+  margin-top: 40px;
 }
 
 .columns-media img {
@@ -100,8 +100,8 @@
 
   .columns-media > div {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 56px;
+    align-items: center;
+    gap: 88px;
     padding: 0 32px;
   }
 

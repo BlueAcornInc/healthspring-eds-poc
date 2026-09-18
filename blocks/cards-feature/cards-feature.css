@@ -2,12 +2,11 @@
 
 /* Values extracted from healthspring.com computed styles. */
 
-/* Full-width section band. Source renders this section on a single white
-   background (not the cream the `light` section style applies), so force
-   white here and override the section-metadata `light` tint. */
+/* Full-width cream band — matches the live source's "Why Choose" section
+   background (#f4f2f8). A single background across the whole section. */
 .section.cards-feature-container,
 main .section.light.cards-feature-container {
-  background-color: var(--background-color, #fff);
+  background-color: var(--hs-cream);
   margin: 0;
   padding: 64px 0;
 }
