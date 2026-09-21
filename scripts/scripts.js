@@ -183,18 +183,16 @@ function decorateSectionMetadata(main) {
  * @param {Element} main
  */
 function groupPlanFinderCard(main) {
-  // Identify the plan-finder section by its authored content (the plan-finder
-  // widget), NOT by the `.plan-finder-container` section-style class — that
-  // class is applied asynchronously and is not present when this runs.
-  const widget = main.querySelector('.widget, .plan-finder');
-  const section = widget?.closest('.section') || widget?.closest('main > div');
+  // Identify the plan-finder by its authored heading text, which is present in
+  // the raw DOM at decorate time (unlike the `.widget` block class or the
+  // `.plan-finder-container` section-style class, both applied asynchronously).
+  const heading = [...main.querySelectorAll('h1, h2, h3, h4, h5, h6')]
+    .find((h) => /shop and compare plans/i.test(h.textContent));
+  const section = heading?.closest('main > div');
   if (!section || section.querySelector('.plan-finder-card')) return;
-  const heading = section.querySelector('h4, h2, h3');
-  if (!heading) return;
-  // Card = the heading, the widget's wrapper, and the contact paragraph's
-  // wrapper — i.e. every section child from the heading's wrapper onward.
-  const first = heading.closest(':scope > *') === section ? heading
-    : [...section.children].find((c) => c.contains(heading));
+  // Card = every section child from the heading's wrapper onward (heading,
+  // plan-finder widget, contact paragraph).
+  const first = [...section.children].find((c) => c === heading || c.contains(heading));
   if (!first) return;
   const parts = [];
   let node = first;
@@ -202,7 +200,6 @@ function groupPlanFinderCard(main) {
     parts.push(node);
     node = node.nextElementSibling;
   }
-  if (!parts.length) return;
   const card = document.createElement('div');
   card.className = 'plan-finder-card';
   first.before(card);
