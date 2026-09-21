@@ -185,14 +185,11 @@ function decorateSectionMetadata(main) {
 function groupPlanFinderCard(main) {
   const section = main.querySelector('.section.plan-finder-container');
   if (!section || section.querySelector('.plan-finder-card')) return;
-  const hero = section.querySelector('.hero-primary-wrapper');
-  if (!hero) return;
-  const parts = [];
-  let sib = hero.nextElementSibling;
-  while (sib) {
-    parts.push(sib);
-    sib = sib.nextElementSibling;
-  }
+  // The hero is always the first child of this section; the remaining
+  // children (heading, plan-finder widget, contact) form the card. Use the
+  // child list directly rather than the block wrapper, which may not exist
+  // yet when this runs during decorateMain.
+  const parts = [...section.children].slice(1);
   if (!parts.length) return;
   const card = document.createElement('div');
   card.className = 'plan-finder-card';
