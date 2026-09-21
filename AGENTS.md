@@ -20,3 +20,9 @@ Edge Delivery Services. Read a block first. Omissions are in the repo or known.
 - A PR without a `{branch}--{repo}--{owner}.aem.page/{path}` link is rejected.
 - All committed files are served. Use `.hlxignore`.
 - Skills: `/plugin marketplace add adobe/skills`, then `aem-edge-delivery-services` (24 skills, incl. `docs-search`).
+
+## Debugging (learned the hard way)
+- DOM/JS bug? Reproduce on localhost + READ THE BROWSER CONSOLE before deploy/theorize. Local loop = seconds; deploy loop = minutes and lies (caching).
+- Section-style classes (`.x-container` from Section Metadata) and block classes (`.blockname`, esp. widgets fetching remote HTML) apply ASYNC. Don't anchor logic on them in `decorateMain`/eager — they may not exist yet. Anchor on authored content (heading text, etc.). Re-run in `loadLazy` after `await loadSections(main)` with an idempotent guard.
+- "Live not updating" is almost always browser/CDN cache of the ES module or gzip'd CSS — NOT a bad deploy. Prove server truth with `curl -s --compressed <url>` + grep (compare decompressed bytes, never raw transfer size). Verify render with cache OFF: Playwright CDP `Network.setCacheDisabled` then `goto(url+'?nocache='+Date.now())`. Same illusion hit the footer via stale aemcoder-proxy / DA-source-API reads.
+- org = `BlueAcornInc`, site = `blueacorninc` (lowercase in URLs); admin.hlx.page + admin.da.live authorize separately.
