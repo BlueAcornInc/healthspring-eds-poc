@@ -174,6 +174,32 @@ function decorateSectionMetadata(main) {
   });
 }
 
+/**
+ * Groups the "Shop and Compare Plans" pieces (heading, plan-finder widget,
+ * contact paragraph) — authored as separate section wrappers after the hero —
+ * into a single `.plan-finder-card` element so they render as one white
+ * floating card (styled in styles.css). Runs after decorateSections so the
+ * `-wrapper` elements already exist.
+ * @param {Element} main
+ */
+function groupPlanFinderCard(main) {
+  const section = main.querySelector('.section.plan-finder-container');
+  if (!section || section.querySelector('.plan-finder-card')) return;
+  const hero = section.querySelector('.hero-primary-wrapper');
+  if (!hero) return;
+  const parts = [];
+  let sib = hero.nextElementSibling;
+  while (sib) {
+    parts.push(sib);
+    sib = sib.nextElementSibling;
+  }
+  if (!parts.length) return;
+  const card = document.createElement('div');
+  card.className = 'plan-finder-card';
+  parts[0].before(card);
+  parts.forEach((p) => card.append(p));
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
@@ -182,6 +208,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateButtons(main);
+  groupPlanFinderCard(main);
 }
 
 /**

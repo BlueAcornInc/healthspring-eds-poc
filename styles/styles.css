@@ -383,8 +383,27 @@ main .section.plan-finder-container button:hover {
 }
 
 main .section.plan-finder-container input {
-  border: 1px solid rgb(255 255 255 / 30%);
+  border: 1px solid rgb(0 0 0 / 20%);
   border-radius: 6px;
+}
+
+/* W2: white floating card wrapping heading + plan-finder + contact.
+   Bridges the purple/navy seam with a negative top margin. */
+main .section.plan-finder-container .plan-finder-card {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: -56px auto 0;
+  padding: 28px 40px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+/* Dark text on the white card (override the navy section's inherited white). */
+main .section.plan-finder-container .plan-finder-card :is(h1, h2, h3, h4, h5, h6, p, li, strong) {
+  color: var(--hs-brand);
 }
 
 @media (width >= 900px) {
