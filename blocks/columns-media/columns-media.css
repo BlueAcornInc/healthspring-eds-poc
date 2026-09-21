@@ -5,9 +5,14 @@
  * MOBILE: stacks, text on top, image below.
  * Values extracted from source computed styles. */
 
-/* --- full-bleed navy band: cancel the section max-width/padding/margin --- */
-.columns-media-container {
+/* --- full-bleed navy band: cancel the section max-width/padding/margin ---
+ * The block paints its OWN navy band + vertical padding, so the section-level
+ * navy padding (from styles.css `main .section.navy`) is redundant here and
+ * would double the gap above/below. Zero it out — the extra `.navy` class in
+ * the selector is only to out-specify that shared section rule. */
+main .section.navy.columns-media-container {
   margin: 0;
+  padding: 0;
 }
 
 .columns-media-container .columns-media-wrapper {
@@ -15,10 +20,13 @@
   padding: 0;
 }
 
+/* Top padding is 0: the preceding plan-finder card (in the navy hero band)
+ * already supplies the visual gap above the heading — matches the ~64px seam
+ * on the source. Bottom padding spaces the band from the next section. */
 .columns-media {
   background-color: var(--hs-navy);
   color: #fff;
-  padding: 48px 0;
+  padding: 0 0 48px;
 }
 
 /* --- constrain inner content to the site grid --- */
@@ -95,7 +103,7 @@
 
 @media (width >= 900px) {
   .columns-media {
-    padding: 64px 0;
+    padding: 0 0 64px;
   }
 
   .columns-media > div {
