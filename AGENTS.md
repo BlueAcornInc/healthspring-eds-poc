@@ -21,6 +21,10 @@ Edge Delivery Services. Read a block first. Omissions are in the repo or known.
 - All committed files are served. Use `.hlxignore`.
 - Skills: `/plugin marketplace add adobe/skills`, then `aem-edge-delivery-services` (24 skills, incl. `docs-search`).
 
+## Delegate
+- Routine mechanical work — lint, DOM/computed-style measurements, greps, repetitive edits, curl code-sync/publish, cache-disabled render checks — goes to a fast/light subagent (Haiku via the Agent `model` param), in parallel when steps are independent. This is the DEFAULT, not an ask-each-time.
+- Keep on the heavy model only what you'd have to re-verify anyway: root-cause diagnosis and deciding the minimal correct fix. Don't burn the expensive model on go-do-X-and-report-back.
+
 ## Debugging (learned the hard way)
 - DOM/JS bug? Reproduce on localhost + READ THE BROWSER CONSOLE before deploy/theorize. Local loop = seconds; deploy loop = minutes and lies (caching).
 - Section-style classes (`.x-container` from Section Metadata) and block classes (`.blockname`, esp. widgets fetching remote HTML) apply ASYNC. Don't anchor logic on them in `decorateMain`/eager — they may not exist yet. Anchor on authored content (heading text, etc.). Re-run in `loadLazy` after `await loadSections(main)` with an idempotent guard.
