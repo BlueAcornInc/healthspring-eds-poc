@@ -426,18 +426,27 @@ main .section.plan-finder-container .plan-finder-card input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
-    margin: -56px auto 0;
-    padding: 28px 40px;
+    gap: 32px;
+    margin: -48px auto 0;
+    padding: 18px 40px;
   }
 
   main .section.plan-finder-container .plan-finder-card > * {
     margin: 0;
   }
 
-  /* W5: vertical divider before the contact column (last child). */
+  /* Tighter line spacing — the contact paragraph drives the card height. */
+  main .section.plan-finder-container .plan-finder-card p {
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  /* W5: vertical divider before the contact column (last child).
+     Widen it (max-width 320px) so its text wraps to fewer lines, keeping
+     the card short. */
   main .section.plan-finder-container .plan-finder-card > :last-child {
-    align-self: stretch;
+    flex: 0 0 auto;
+    max-width: 320px;
     border-left: 1px solid rgb(31 22 71 / 15%);
     padding-left: 32px;
   }
