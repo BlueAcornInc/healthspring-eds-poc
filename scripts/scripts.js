@@ -188,8 +188,6 @@ function groupPlanFinderCard(main) {
   // `.plan-finder-container` section-style class, both applied asynchronously).
   const heading = [...main.querySelectorAll('h1, h2, h3, h4, h5, h6')]
     .find((h) => /shop and compare plans/i.test(h.textContent));
-  // eslint-disable-next-line no-console
-  console.log('[PFC] run; headingFound=', !!heading, 'existingCard=', !!main.querySelector('.plan-finder-card'));
   const section = heading?.closest('main > div');
   if (!section || section.querySelector('.plan-finder-card')) return;
   // Card = every section child from the heading's wrapper onward (heading,
@@ -252,6 +250,10 @@ async function loadLazy(doc) {
 
   const main = doc.querySelector('main');
   await loadSections(main);
+
+  // Re-run after all sections/blocks are fully loaded — the eager pass can run
+  // before async blocks (e.g. the plan-finder widget) settle.
+  groupPlanFinderCard(main);
 
   const { hash } = window.location;
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
