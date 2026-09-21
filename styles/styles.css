@@ -388,14 +388,15 @@ main .section.plan-finder-container input {
 }
 
 /* W2: white floating card wrapping heading + plan-finder + contact.
-   Bridges the purple/navy seam with a negative top margin. */
+   Bridges the purple/navy seam with a negative top margin.
+   Mobile-first (stacked); the 3-column row is applied at >=900px (W3). */
 main .section.plan-finder-container .plan-finder-card {
   position: relative;
   z-index: 1;
   box-sizing: border-box;
   max-width: 1200px;
-  margin: -56px auto 0;
-  padding: 28px 40px;
+  margin: -32px 16px 0;
+  padding: 20px;
   border-radius: 16px;
   background: #fff;
   box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
@@ -426,10 +427,19 @@ main .section.plan-finder-container .plan-finder-card input {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    margin: -56px auto 0;
+    padding: 28px 40px;
   }
 
   main .section.plan-finder-container .plan-finder-card > * {
     margin: 0;
+  }
+
+  /* W5: vertical divider before the contact column (last child). */
+  main .section.plan-finder-container .plan-finder-card > :last-child {
+    align-self: stretch;
+    border-left: 1px solid rgb(31 22 71 / 15%);
+    padding-left: 32px;
   }
 }
 
