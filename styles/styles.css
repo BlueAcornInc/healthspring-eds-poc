@@ -406,6 +406,33 @@ main .section.plan-finder-container .plan-finder-card :is(h1, h2, h3, h4, h5, h6
   color: var(--hs-brand);
 }
 
+/* W4: "Shop for a plan" button as a purple pill; constrain the ZIP field. */
+main .section.plan-finder-container .plan-finder-card button,
+main .section.plan-finder-container .plan-finder-card button.button {
+  border-radius: 999px;
+  padding: 12px 24px;
+}
+
+main .section.plan-finder-container .plan-finder-card input {
+  max-width: 240px;
+  width: 100%;
+}
+
+/* W3: horizontal 3-column card layout on desktop —
+   heading | ZIP+button | contact. */
+@media (width >= 900px) {
+  main .section.plan-finder-container .plan-finder-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  main .section.plan-finder-container .plan-finder-card > * {
+    margin: 0;
+  }
+}
+
 @media (width >= 900px) {
   main .section.navy,
   main .section.navy-section,
