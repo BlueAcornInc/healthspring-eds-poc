@@ -9,6 +9,21 @@
   margin: 0;
 }
 
+/* Hardening against double padding: this block paints its OWN full-bleed band
+   with its own vertical padding. When it is the FIRST or LAST block of a
+   section that also carries band padding (styles.css .navy/.purple/
+   .white-padded set 48/64px 0), that section padding sits OUTSIDE the band and
+   reads as a doubled gap. Cancel the section padding only on the edge the band
+   is flush to. No-op when hero-promo is an interior block (as on the homepage,
+   where it shares a section with other content). */
+main .section:has(> .hero-promo-wrapper:first-child) {
+  padding-top: 0;
+}
+
+main .section:has(> .hero-promo-wrapper:last-child) {
+  padding-bottom: 0;
+}
+
 .hero-promo {
   position: relative;
   overflow: hidden;

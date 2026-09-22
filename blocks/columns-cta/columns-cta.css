@@ -5,19 +5,10 @@
  * with a trailing arrow, side-by-side on desktop, stacked on mobile.
  */
 
-/* Section band: full-width white strip with generous vertical padding.
-   The section gets .white-padded-section from page metadata (Style: white-padded). */
-main .section.white-padded-section {
-  margin: 0;
-  padding: 48px 0;
-  background-color: var(--background-color); /* white */
-}
-
-@media (width >= 900px) {
-  main .section.white-padded-section {
-    padding: 64px 0; /* source computed padding: 64px 0 */
-  }
-}
+/* Section band styling (white strip, 48/64px vertical padding) is supplied by
+   the shared `.white-padded` rule in styles.css. (An earlier `.white-padded-
+   section` rule here never matched — the authored class is `white-padded` — so
+   it has been removed.) */
 
 /* Row: stacked on mobile */
 .columns-cta > div {
